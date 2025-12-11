@@ -27,6 +27,7 @@ self.addEventListener('message', async (e) => {
     // Convert to blob
     const blob = await canvas.convertToBlob({
       type: 'image/jpeg',
+
       quality: quality || 0.8
     });
 
