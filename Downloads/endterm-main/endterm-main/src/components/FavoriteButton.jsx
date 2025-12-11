@@ -1,10 +1,26 @@
 // src/components/FavoriteButton.jsx
 import React from 'react';
-import { useFavorites } from '../hooks/useFavorites';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from '../context/AuthContext';
+import { addFavorite, removeFavorite } from '../features/favoritesSlice';
 
 const FavoriteButton = ({ itemId }) => {
-  const { isFavorite, toggleFavorite } = useFavorites();
-  const favorite = isFavorite(itemId);
+  const dispatch = useDispatch();
+  const { user } = useAuth();
+  const favorites = useSelector((state) => state.favorites.items);
+
+  const isFavorite = favorites.includes(itemId);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (isFavorite) {
+      dispatch(removeFavorite({ userId: user?.uid, itemId }));
+    } else {
+      dispatch(addFavorite({ userId: user?.uid, itemId }));
+    }
+  };
 
   const buttonStyle = {
     background: 'none',
@@ -15,21 +31,15 @@ const FavoriteButton = ({ itemId }) => {
     padding: '5px',
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleFavorite(itemId);
-  };
-
   return (
     <button
       onClick={handleClick}
       style={buttonStyle}
-      onMouseEnter={(e) => e.target.style.transform = 'scale(1.2)'}
-      onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-      title={favorite ? 'Remove from favorites' : 'Add to favorites'}
+      onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
+      onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
+      title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
     >
-      {favorite ? '❤️' : '🤍'}
+      {isFavorite ? '❤️' : '🤍'}
     </button>
   );
 };
