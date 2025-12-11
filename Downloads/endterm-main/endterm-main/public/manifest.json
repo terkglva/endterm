@@ -1,0 +1,55 @@
+{
+  "name": "R&M Explorer",
+  "short_name": "Rick and Morty Character Explorer",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    
+  ],
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffcc00",
+  "description": "Explore characters from the Rick and Morty multiverse",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "logo192",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Play Now",
+      "short_name": "Play",
+      "description": "Start platying",
+      "url": "/play"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+rickandmorty",
+      "url": "/?open=%s"
+    }
+  ]
+}

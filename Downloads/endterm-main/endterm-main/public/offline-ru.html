@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Offline — Rick & Morty Explorer</title>
+<style>
+  body { margin:0; padding:0; background:#0b0b0b; color:#68ed3a; font-family:Arial,sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; overflow:hidden;}
+  h1 { font-size:32px; margin-bottom:10px; text-shadow:0 0 12px #68ed3a;}
+  p { font-size:18px; opacity:0.85; max-width:280px; line-height:1.4;}
+  .portal { width:180px; height:180px; background:radial-gradient(circle, #69ff4d 0%, #5ceb3b 30%, #3d8f29 70%, #0b0b0b 100%); border-radius:50%; filter:blur(2px); animation:spin 4s linear infinite; margin-bottom:25px;}
+  @keyframes spin { 0% { transform:rotate(0deg) scale(1); } 100% { transform:rotate(360deg) scale(1.05); } }
+  .btn { margin-top:30px; padding:12px 28px; background:#68ed3a; color:#0b0b0b; font-weight:bold; border-radius:8px; text-decoration:none; display:inline-block; font-size:16px; transition:0.2s;}
+  .btn:hover { background:#8eff60; transform:scale(1.05);}
+</style>
+</head>
+<body>
+<div class="portal"></div>
+<h1>Ты вне сети</h1>
+<p>Похоже, интернет отправился в другое измерение.<br>Но ничего — портал вернётся, как только связь восстановится.</p>
+<a href="/" class="btn">Перезагрузить</a>
+</body>
+</html>
