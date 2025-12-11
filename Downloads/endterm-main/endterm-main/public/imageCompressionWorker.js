@@ -1,4 +1,6 @@
+/* eslint-disable no-restricted-globals */
 // public/imageCompressionWorker.js
+
 
 self.addEventListener('message', async (e) => {
   const { file, maxWidth, maxHeight, quality } = e.data;
